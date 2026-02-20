@@ -1,190 +1,224 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой простой сайт</title>
+<!DOCTYPE html> <!-- Объявление типа документа - говорит браузеру, что это HTML5 -->
+<html lang="ru"> <!-- Открывающий тег html с указанием языка сайта (русский) -->
+<head> <!-- Начало служебной информации страницы -->
+    <meta charset="UTF-8"> <!-- Указываем кодировку символов UTF-8 (поддерживает русский язык) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Настройка отображения на мобильных устройствах -->
+    <title>Мой простой сайт</title> <!-- Заголовок страницы (отображается во вкладке браузера) -->
+    
+    <!-- НАЧАЛО СТИЛЕЙ CSS -->
     <style>
+        /* Сбрасываем стандартные отступы браузера */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0; /* Убираем внешние отступы */
+            padding: 0; /* Убираем внутренние отступы */
+            box-sizing: border-box; /* Паддинги и бордеры не увеличивают ширину элемента */
         }
         
+        /* Стили для тела страницы */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Шрифт для всего сайта */
+            line-height: 1.6; /* Межстрочный интервал */
+            color: #333; /* Цвет текста (темно-серый) */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Градиентный фон (фиолетовый оттенок) */
+            min-height: 100vh; /* Минимальная высота на весь экран */
         }
         
+        /* Контейнер-обертка для центрирования контента */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 800px; /* Максимальная ширина контента */
+            margin: 0 auto; /* Автоматические отступы слева и справа (центрирование) */
+            padding: 20px; /* Внутренние отступы */
         }
         
+        /* Стили для шапки сайта */
         header {
-            background: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: white; /* Белый фон */
+            padding: 40px 20px; /* Внутренние отступы: 40px сверху/снизу, 20px слева/справа */
+            text-align: center; /* Выравнивание текста по центру */
+            border-radius: 10px; /* Закругленные углы */
+            margin: 20px 0; /* Внешние отступы: 20px сверху и снизу */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Тень: смещение по X, смещение по Y, размытие, цвет */
         }
         
+        /* Стили для главного заголовка */
         h1 {
-            font-size: 2.5em;
-            color: #667eea;
-            margin-bottom: 10px;
+            font-size: 2.5em; /* Размер шрифта (относительно родительского) */
+            color: #667eea; /* Цвет текста (голубовато-фиолетовый) */
+            margin-bottom: 10px; /* Отступ снизу */
         }
         
+        /* Стили для подзаголовка */
         .subtitle {
-            color: #666;
-            font-size: 1.2em;
+            color: #666; /* Серый цвет текста */
+            font-size: 1.2em; /* Размер шрифта */
         }
         
+        /* Стили для навигационного меню */
         nav {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: white; /* Белый фон */
+            padding: 15px; /* Внутренние отступы */
+            border-radius: 10px; /* Закругленные углы */
+            margin: 20px 0; /* Внешние отступы */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Легкая тень */
         }
         
+        /* Стили для списка в навигации */
         nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
+            list-style: none; /* Убираем маркеры списка */
+            display: flex; /* Используем flexbox для горизонтального расположения */
+            justify-content: center; /* Выравниваем по центру */
+            gap: 30px; /* Расстояние между пунктами меню */
         }
         
+        /* Стили для ссылок в навигации */
         nav a {
-            text-decoration: none;
-            color: #667eea;
-            font-weight: 500;
-            transition: color 0.3s;
+            text-decoration: none; /* Убираем подчеркивание */
+            color: #667eea; /* Цвет ссылок */
+            font-weight: 500; /* Полужирное начертание */
+            transition: color 0.3s; /* Плавное изменение цвета при наведении */
         }
         
+        /* Эффект при наведении на ссылки */
         nav a:hover {
-            color: #764ba2;
+            color: #764ba2; /* Меняем цвет при наведении */
         }
         
+        /* Стили для основной части */
         main {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: white; /* Белый фон */
+            padding: 30px; /* Внутренние отступы */
+            border-radius: 10px; /* Закругленные углы */
+            margin: 20px 0; /* Внешние отступы */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Тень */
         }
         
+        /* Стили для заголовков второго уровня */
         h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 10px;
+            color: #667eea; /* Цвет заголовка */
+            margin-bottom: 20px; /* Отступ снизу */
+            border-bottom: 2px solid #f0f0f0; /* Нижняя граница */
+            padding-bottom: 10px; /* Отступ от границы до текста */
         }
         
+        /* Стили для карточки */
         .card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 4px solid #667eea;
+            background: #f9f9f9; /* Светло-серый фон */
+            padding: 20px; /* Внутренние отступы */
+            border-radius: 8px; /* Закругленные углы */
+            margin: 20px 0; /* Внешние отступы */
+            border-left: 4px solid #667eea; /* Цветная полоска слева */
         }
         
+        /* Стили для кнопки */
         .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: transform 0.3s;
+            display: inline-block; /* Строчно-блочный элемент (можно задавать размеры) */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Градиентный фон */
+            color: white; /* Белый текст */
+            padding: 12px 30px; /* Внутренние отступы */
+            text-decoration: none; /* Убираем подчеркивание */
+            border-radius: 5px; /* Закругленные углы */
+            margin-top: 20px; /* Отступ сверху */
+            transition: transform 0.3s; /* Плавная анимация трансформации */
         }
         
+        /* Эффект при наведении на кнопку */
         .btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px); /* Поднимаем кнопку вверх на 2px */
         }
         
+        /* Стили для подвала */
         footer {
-            text-align: center;
-            color: white;
-            margin-top: 40px;
+            text-align: center; /* Текст по центру */
+            color: white; /* Белый текст */
+            margin-top: 40px; /* Отступ сверху */
         }
         
+        /* Стили для ссылок в подвале */
         footer a {
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px dotted white;
+            color: white; /* Белые ссылки */
+            text-decoration: none; /* Убираем подчеркивание */
+            border-bottom: 1px dotted white; /* Пунктирное подчеркивание */
         }
         
+        /* Эффект при наведении на ссылки в подвале */
         footer a:hover {
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid white; /* Сплошное подчеркивание при наведении */
         }
         
+        /* МЕДИА-ЗАПРОС - стили для мобильных устройств (ширина экрана меньше 600px) */
         @media (max-width: 600px) {
+            /* Меняем навигацию на вертикальную */
             nav ul {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
+                flex-direction: column; /* Вертикальное расположение */
+                text-align: center; /* Текст по центру */
+                gap: 15px; /* Уменьшаем расстояние между пунктами */
             }
             
+            /* Уменьшаем размер заголовка */
             h1 {
                 font-size: 2em;
             }
             
+            /* Уменьшаем отступы контейнера */
             .container {
                 padding: 10px;
             }
         }
-    </style>
-</head>
-<body>
-    <div class="container">
+    </style> <!-- КОНЕЦ СТИЛЕЙ CSS -->
+</head> <!-- Конец служебной информации -->
+
+<body> <!-- Начало видимой части страницы -->
+    <div class="container"> <!-- Открываем контейнер для центрирования -->
+        
+        <!-- ШАПКА САЙТА -->
         <header>
-            <h1>Мой простой сайт</h1>
-            <p class="subtitle">Добро пожаловать на мой первый сайт!</p>
+            <h1>Мой простой сайт</h1> <!-- Главный заголовок -->
+            <p class="subtitle">Добро пожаловать на мой первый сайт!</p> <!-- Подзаголовок -->
         </header>
         
+        <!-- НАВИГАЦИОННОЕ МЕНЮ -->
         <nav>
-            <ul>
-                <li><a href="#">Главная</a></li>
+            <ul> <!-- Ненумерованный список для пунктов меню -->
+                <li><a href="#">Главная</a></li> <!-- Пункт меню со ссылкой -->
                 <li><a href="#">О нас</a></li>
                 <li><a href="#">Услуги</a></li>
                 <li><a href="#">Контакты</a></li>
             </ul>
         </nav>
         
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
         <main>
-            <h2>О сайте</h2>
-            <p>Это простой, но красивый сайт, созданный с использованием HTML и CSS. Здесь вы можете разместить любую информацию о себе, своей компании или проекте.</p>
+            <h2>О сайте</h2> <!-- Заголовок секции -->
+            <p>Это простой, но красивый сайт, созданный с использованием HTML и CSS. Здесь вы можете разместить любую информацию о себе, своей компании или проекте.</p> <!-- Абзац текста -->
             
+            <!-- КАРТОЧКА С ИНТЕРЕСНЫМ ФАКТОМ -->
             <div class="card">
-                <h3>Интересный факт</h3>
-                <p>Знаете ли вы, что первый в мире веб-сайт был создан в 1991 году Тимом Бернерсом-Ли и до сих пор доступен в интернете?</p>
+                <h3>Интересный факт</h3> <!-- Заголовок карточки -->
+                <p>Знаете ли вы, что первый в мире веб-сайт был создан в 1991 году Тимом Бернерсом-Ли и до сих пор доступен в интернете?</p> <!-- Текст факта -->
             </div>
             
-            <h2>Наши преимущества</h2>
-            <ul style="margin-left: 20px;">
-                <li>Простой и понятный дизайн</li>
+            <h2>Наши преимущества</h2> <!-- Заголовок секции -->
+            <!-- Нумерованный список с преимуществами -->
+            <ul style="margin-left: 20px;"> <!-- Добавляем отступ слева -->
+                <li>Простой и понятный дизайн</li> <!-- Элемент списка -->
                 <li>Адаптивная верстка для всех устройств</li>
                 <li>Быстрая загрузка страниц</li>
                 <li>Чистый и поддерживаемый код</li>
             </ul>
             
+            <!-- Центрирование кнопки (устаревший тег, но простой для примера) -->
             <center>
-                <a href="#" class="btn">Узнать больше</a>
+                <a href="#" class="btn">Узнать больше</a> <!-- Кнопка-ссылка -->
             </center>
         </main>
         
+        <!-- ПОДВАЛ САЙТА -->
         <footer>
-            <p>&copy; 2024 Мой простой сайт. Все права защищены.</p>
-            <p>Создано с ❤️ для изучения веб-разработки</p>
-            <p><a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p>
+            <p>&copy; 2024 Мой простой сайт. Все права защищены.</p> <!-- Символ копирайта -->
+            <p>Создано с ❤️ для изучения веб-разработки</p> <!-- Сердечко как символ -->
+            <p><a href="#">Политика конфиденциальности</a> | <a href="#">Условия использования</a></p> <!-- Ссылки через разделитель -->
         </footer>
-    </div>
-</body>
-</html>
+        
+    </div> <!-- Закрываем контейнер -->
+</body> <!-- Конец видимой части -->
+</html> <!-- Конец HTML документа -->
